@@ -9,6 +9,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
 	private static Scene mainScene;
 	
 	@Override
@@ -22,7 +23,7 @@ public class Main extends Application {
 			
 			mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
-			primaryStage.setTitle("Sample JavaFX application");
+			primaryStage.setTitle("Gradiente de Temperatura e Posição de Válvula");
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

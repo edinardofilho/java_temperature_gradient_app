@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import gui.util.Alerts;
+import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,28 +35,29 @@ public class MainViewController implements Initializable {
 	private Button btAbout;
 
 	@FXML
-	public void onBtPositiveTemperatureGradient() {
+	public void onBtPositiveTemperatureGradientAction() {
 		System.out.println("Temperatura - Positiva");
 	}
 
 	@FXML
-	public void onBtNegativeTemperatureGradient() {
+	public void onBtNegativeTemperatureGradientAction() {
 		System.out.println("Temperatura - Negativa");
 	}
 
 	@FXML
-	public void onBtPositiveValvePositionGradient() {
+	public void onBtPositiveValvePositionGradientAction() {
 		System.out.println("Válvula - Positiva");
 	}
 
 	@FXML
-	public void onBtNegativeValvePositionGradient() {
+	public void onBtNegativeValvePositionGradientAction() {
 		System.out.println("Válvula - Negativa");
 	}
 
 	@FXML
-	public void onBtAbout() {
-		System.out.println("Sobre");
+	public void onBtAboutAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		loadView("/gui/About.fxml", parentStage);
 	}
 
 	@Override
@@ -68,7 +71,7 @@ public class MainViewController implements Initializable {
 			Pane pane = loader.load();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Enter Department data");
+			dialogStage.setTitle("Informações");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
