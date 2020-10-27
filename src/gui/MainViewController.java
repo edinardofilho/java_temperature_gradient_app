@@ -35,29 +35,30 @@ public class MainViewController implements Initializable {
 	private Button btAbout;
 
 	@FXML
-	public void onBtPositiveTemperatureGradientAction() {
+	public void onBtPositiveTemperatureGradientAction(ActionEvent event) {
 		System.out.println("Temperatura - Positiva");
 	}
 
 	@FXML
-	public void onBtNegativeTemperatureGradientAction() {
+	public void onBtNegativeTemperatureGradientAction(ActionEvent event) {
 		System.out.println("Temperatura - Negativa");
 	}
 
 	@FXML
-	public void onBtPositiveValvePositionGradientAction() {
+	public void onBtPositiveValvePositionGradientAction(ActionEvent event) {
 		System.out.println("Válvula - Positiva");
 	}
 
 	@FXML
-	public void onBtNegativeValvePositionGradientAction() {
-		System.out.println("Válvula - Negativa");
+	public void onBtNegativeValvePositionGradientAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		loadView("/gui/NegativeValvePositionGradient.fxml", "Gradiente de Posição de Válvula Negativo", parentStage);
 	}
 
 	@FXML
 	public void onBtAboutAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		loadView("/gui/About.fxml", parentStage);
+		loadView("/gui/About.fxml", "Informações", parentStage);
 	}
 
 	@Override
@@ -65,13 +66,13 @@ public class MainViewController implements Initializable {
 
 	}
 
-	private synchronized <T> void loadView(String absoluteName, Stage parentStage) {
+	private synchronized <T> void loadView(String absoluteName, String title, Stage parentStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();
 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Informações");
+			dialogStage.setTitle(title);
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
@@ -79,6 +80,7 @@ public class MainViewController implements Initializable {
 			dialogStage.showAndWait();
 
 		} catch (IOException e) {
+			e.printStackTrace();
 			Alerts.showAlert("IO Exception", "Erro carregando página", e.getMessage(), AlertType.ERROR);
 		}
 	}
