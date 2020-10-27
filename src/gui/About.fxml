@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AboutController">
+   <children>
+      <Label text="Sobre:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label text="Software gerador de gradiente de temperatura e de abertura de válvulas, para auxiliar na operação de peneiras moleculares, fornos, plantas de aquecimento e resfriamento." wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label text="Criado por: Francisco Edinardo de Freitas Filho">
+         <padding>
+            <Insets left="10.0" top="20.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Versão: 0.1b">
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Contato através da chave: EJR3">
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Contato atraves do e-mail: edinardofreitas@gmail.com">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="btClose" mnemonicParsing="false" onAction="#onBtCloseAction" text="Fechar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="40.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets left="30.0" top="20.0" />
+   </padding>
+</VBox>
