@@ -32,13 +32,22 @@ public class NegativeValvePositionGradientController implements Initializable {
 	private TextField txtFinalPosition;
 
 	@FXML
-	private TextField txtHours;
+	private TextField txtTotalTimeHours;
 
 	@FXML
-	private TextField txtMinutes;
+	private TextField txtTotalTimeMinutes;
 
 	@FXML
-	private TextField txtSeconds;
+	private TextField txtTotalTimeSeconds;
+
+	@FXML
+	private TextField txtAlarmHours;
+
+	@FXML
+	private TextField txtAlarmMinutes;
+
+	@FXML
+	private TextField txtAlarmSeconds;
 
 	@FXML
 	public void onBtCloseAction(ActionEvent event) {
@@ -59,19 +68,22 @@ public class NegativeValvePositionGradientController implements Initializable {
 			finalPosition = Utils.tryParseToDouble(txtFinalPosition.getText());
 		}
 
-		int hours = Utils.tryParseToInt(txtHours.getText());
-		int minutes = Utils.tryParseToInt(txtMinutes.getText());
-		int seconds = Utils.tryParseToInt(txtSeconds.getText());
+		int totalTimeHours = Utils.tryParseToInt(txtTotalTimeHours.getText());
+		int totalTimeMinutes = Utils.tryParseToInt(txtTotalTimeMinutes.getText());
+		int totalTimeSeconds = Utils.tryParseToInt(txtTotalTimeSeconds.getText());
 
-		if (hours == 0 && minutes == 0 && seconds == 0) {
-			Alerts.showAlert("Tempo Zerado", "Tempo não pode ser igual a zero",
+		int alarmHours = Utils.tryParseToInt(txtAlarmHours.getText());
+		int alarmMinutes = Utils.tryParseToInt(txtAlarmMinutes.getText());
+		int alarmSeconds = Utils.tryParseToInt(txtAlarmSeconds.getText());
+
+		if (totalTimeHours == 0 && totalTimeMinutes == 0 && totalTimeSeconds == 0) {
+			Alerts.showAlert("Tempo de Gradiente Zerado", "Tempo de gradiente não pode ser igual a zero",
+					"Favor colocar um valor válido no tempo", AlertType.WARNING);
+		} else if (alarmHours == 0 && alarmMinutes == 0 && alarmSeconds == 0) {
+			Alerts.showAlert("Tempo de Alarme Zerado", "Tempo de alarme não pode ser igual a zero",
 					"Favor colocar um valor válido no tempo", AlertType.WARNING);
 		} else {
-			System.out.println("Inicio: " + initialPosition + " Fim: " + finalPosition + " Diferença: "
-					+ (initialPosition - finalPosition) + "\n" + "Horas: " + hours + " Minutos: " + minutes
-					+ " Segundos: " + seconds);
-
-			Gradient gradient = new Gradient(initialPosition, finalPosition, hours, minutes, seconds);
+			Gradient gradient = new Gradient(initialPosition, finalPosition, totalTimeHours, totalTimeMinutes, totalTimeSeconds, alarmHours, alarmMinutes, alarmSeconds);
 
 			gradient.countingGradient();
 		}
@@ -86,9 +98,12 @@ public class NegativeValvePositionGradientController implements Initializable {
 	public void initializeNodes() {
 		Constraints.setTextFieldDouble(txtInitialPosition);
 		Constraints.setTextFieldDouble(txtFinalPosition);
-		Constraints.setTextFieldInteger(txtHours);
-		Constraints.setTextFieldInteger(txtMinutes);
-		Constraints.setTextFieldInteger(txtSeconds);
+		Constraints.setTextFieldInteger(txtTotalTimeHours);
+		Constraints.setTextFieldInteger(txtTotalTimeMinutes);
+		Constraints.setTextFieldInteger(txtTotalTimeSeconds);
+		Constraints.setTextFieldInteger(txtAlarmHours);
+		Constraints.setTextFieldInteger(txtAlarmMinutes);
+		Constraints.setTextFieldInteger(txtAlarmSeconds);
 	}
 
 }
