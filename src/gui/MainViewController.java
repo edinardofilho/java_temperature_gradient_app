@@ -46,7 +46,8 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onBtPositiveValvePositionGradientAction(ActionEvent event) {
-		System.out.println("Válvula - Positiva");
+		Stage parentStage = Utils.currentStage(event);
+		loadView("/gui/PositiveValvePositionGradient.fxml", "Gradiente de Posição de Válvula Positivo", parentStage);
 	}
 
 	@FXML

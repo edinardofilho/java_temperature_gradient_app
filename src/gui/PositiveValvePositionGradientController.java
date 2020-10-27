@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import model.entities.Gradient;
 
-public class NegativeValvePositionGradientController implements Initializable {
+public class PositiveValvePositionGradientController implements Initializable {
 
 	private double initialPosition = 0.0;
 	private double finalPosition = 0.0;
@@ -56,8 +56,6 @@ public class NegativeValvePositionGradientController implements Initializable {
 
 	@FXML
 	public void onBtStartAction(ActionEvent event) {
-		System.out.println("Iniciar contagem");
-
 		if ((Utils.tryParseToDouble(txtInitialPosition.getText()) >= 0.0)
 				&& (Utils.tryParseToDouble(txtInitialPosition.getText()) <= 100.0)) {
 			initialPosition = Utils.tryParseToDouble(txtInitialPosition.getText());
