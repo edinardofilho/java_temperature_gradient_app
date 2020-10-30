@@ -15,7 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import model.entities.Gradient;
 
-public class NegativeTemperatureGradientController implements Initializable {
+public class PositiveTemperatureGradientController implements Initializable {
 
 	private double initialTemperature = 0.0;
 	private double finalTemperature = 0.0;
@@ -99,8 +99,8 @@ public class NegativeTemperatureGradientController implements Initializable {
 			int alarmSeconds = Utils.tryParseToInt(txtAlarmSeconds.getText());
 
 			if (rate == 0) {
-				Alerts.showAlert("Taxa de Resfriamento Zerada", "Tem que haver taxa de resfriamento para a execução do programa",
-						"Favor colocar um valor válido na taxa de Resfriamento", AlertType.WARNING);
+				Alerts.showAlert("Taxa de Aquecimento Zerada", "Tem que haver taxa de aquecimento para a execução do programa",
+						"Favor colocar um valor válido na taxa de Aquecimento", AlertType.WARNING);
 			} else if (alarmHours == 0 && alarmMinutes == 0 && alarmSeconds == 0) {
 				Alerts.showAlert("Tempo de Alarme Zerado", "Tempo de alarme não pode ser igual a zero",
 						"Favor colocar um valor válido no tempo", AlertType.WARNING);

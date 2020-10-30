@@ -36,7 +36,8 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onBtPositiveTemperatureGradientAction(ActionEvent event) {
-		System.out.println("Temperatura - Positiva");
+		Stage parentStage = Utils.currentStage(event);
+		loadView("/gui/PositiveTemperatureGradient.fxml", "Gradiente de Temperatura Positivo", parentStage);
 	}
 
 	@FXML

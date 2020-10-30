@@ -32,7 +32,7 @@ public class Gradient {
 		this.realTimeValue = initialValue;
 		this.finalValue = finalValue;
 		this.alarmSeconds = (long) ((alarmHours * 60 * 60) + (alarmMinutes * 60) + alarmSeconds);
-		this.rate = rate * 60 * 60;
+		this.rate = rate / (60 * 60);
 	}
 
 	public void countingGradient(String info, String unit) {
@@ -55,7 +55,7 @@ public class Gradient {
 		}
 	}
 
-	public void countingRate(String info) {
+	public void countingRate(String info, String unit) {
 		now = (System.currentTimeMillis() / 1000L);
 
 		if (realTimeValue > finalValue) {
@@ -71,7 +71,7 @@ public class Gradient {
 					realTimeValue -= rate;
 					now = (System.currentTimeMillis() / 1000L);
 				}
-				Alerts.showGradient(info, String.format("%.2f", realTimeValue), sdf.format(new Date(now * 1000L)));
+				Alerts.showGradient(info, (String.format("%.2f", realTimeValue) + unit), sdf.format(new Date(now * 1000L)));
 			}
 		} else {
 			while (realTimeValue < finalValue) {
