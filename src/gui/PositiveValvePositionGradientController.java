@@ -9,9 +9,9 @@ import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import model.entities.Gradient;
 
 public class PositiveValvePositionGradientController implements Initializable {
@@ -83,7 +83,7 @@ public class PositiveValvePositionGradientController implements Initializable {
 		} else {
 			Gradient gradient = new Gradient(initialPosition, finalPosition, totalTimeHours, totalTimeMinutes, totalTimeSeconds, alarmHours, alarmMinutes, alarmSeconds);
 
-			gradient.countingGradient("Posição da Válvula");
+			gradient.countingGradient("Posição da Válvula", " %");
 		}
 
 	}

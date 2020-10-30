@@ -16,7 +16,7 @@ public class Gradient {
 	private Long date;
 	private Long now;
 
-	private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 
 	public Gradient(double initialValue, double finalValue, int totalTimeHours, int totalTimeMinutes,
 			int totalTimeSeconds, int alarmHours, int alarmMinutes, int alarmSeconds) {
@@ -35,7 +35,7 @@ public class Gradient {
 		this.rate = rate * 60 * 60;
 	}
 
-	public void countingGradient(String info) {
+	public void countingGradient(String info, String unit) {
 		totalTimeSeconds += (System.currentTimeMillis() / 1000L);
 		now = (System.currentTimeMillis() / 1000L);
 
@@ -51,7 +51,7 @@ public class Gradient {
 				realTimeValue -= rate;
 				now = (System.currentTimeMillis() / 1000L);
 			}
-			Alerts.showGradient(info, String.format("%.2f", realTimeValue), sdf.format(new Date(now * 1000L)));
+			Alerts.showGradient(info, (String.format("%.2f", realTimeValue) + unit), sdf.format(new Date(now * 1000L)));
 		}
 	}
 

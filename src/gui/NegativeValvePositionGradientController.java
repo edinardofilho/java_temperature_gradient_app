@@ -9,9 +9,9 @@ import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import model.entities.Gradient;
 
 public class NegativeValvePositionGradientController implements Initializable {
@@ -56,8 +56,6 @@ public class NegativeValvePositionGradientController implements Initializable {
 
 	@FXML
 	public void onBtStartAction(ActionEvent event) {
-		System.out.println("Iniciar contagem");
-
 		if ((Utils.tryParseToDouble(txtInitialPosition.getText()) >= 0.0)
 				&& (Utils.tryParseToDouble(txtInitialPosition.getText()) <= 100.0)) {
 			initialPosition = Utils.tryParseToDouble(txtInitialPosition.getText());
@@ -83,9 +81,10 @@ public class NegativeValvePositionGradientController implements Initializable {
 			Alerts.showAlert("Tempo de Alarme Zerado", "Tempo de alarme não pode ser igual a zero",
 					"Favor colocar um valor válido no tempo", AlertType.WARNING);
 		} else {
-			Gradient gradient = new Gradient(initialPosition, finalPosition, totalTimeHours, totalTimeMinutes, totalTimeSeconds, alarmHours, alarmMinutes, alarmSeconds);
+			Gradient gradient = new Gradient(initialPosition, finalPosition, totalTimeHours, totalTimeMinutes,
+					totalTimeSeconds, alarmHours, alarmMinutes, alarmSeconds);
 
-			gradient.countingGradient("Posição da Válvula");
+			gradient.countingGradient("Posição da Válvula", " %");
 		}
 
 	}

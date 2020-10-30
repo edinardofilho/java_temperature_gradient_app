@@ -13,7 +13,7 @@ public class Constraints {
 
 	public static void setTextFieldDouble(TextField txt) {
 		txt.textProperty().addListener((obs, oldValue, newValue) -> {
-			if (newValue != null && !newValue.matches("\\d*([\\.]\\d*)?")) {
+			if (newValue != null && !newValue.matches("[-+]?[0-9]*\\.?[0-9]*")) {
 				txt.setText(oldValue);
 			}
 		});
