@@ -32,7 +32,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label text="Versão: 0.1b">
+      <Label text="Versão: 1.0.0">
          <padding>
             <Insets left="10.0" top="10.0" />
          </padding>

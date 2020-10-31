@@ -1,11 +1,10 @@
 package model.services;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Calendar;
-import java.util.Date;
 
 import gui.util.Alerts;
+import javafx.event.ActionEvent;
 
 public class Gradient {
 
@@ -19,6 +18,10 @@ public class Gradient {
 	private int alarmHours;
 	private int alarmMinutes;
 	private int alarmSeconds;
+	
+	private static String info;
+	private static String value;
+	private static String time;
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
@@ -47,7 +50,6 @@ public class Gradient {
 		this.alarmMinutes = alarmMinutes;
 		this.alarmSeconds = alarmSeconds;
 	}
-
 
 
 	public void countingGradient(String info, String unit) {
@@ -102,6 +104,4 @@ public class Gradient {
 			Alerts.showGradient(info, (String.format("%.2f", realTimeValue) + unit), sdf.format(now.getTime()));
 		}
 	}
-	
-	
 }

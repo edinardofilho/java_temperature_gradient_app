@@ -9,7 +9,7 @@ public class Alerts {
 		alert.setTitle(title);
 		alert.setHeaderText(header);
 		alert.setContentText(content);
-		alert.show();
+		alert.showAndWait();
 	}
 	
 	public static void showGradient(String title, String header, String content) {
@@ -17,7 +17,7 @@ public class Alerts {
 		alert.setTitle(title);
 		alert.setHeaderText(header);
 		alert.setContentText(content);
-		alert.show();
+		alert.showAndWait();
 	}
 
 }
