@@ -39,6 +39,24 @@
 				<Insets left="50.0" right="50.0" top="50.0" />
 			</VBox.margin>
 			<children>
+				<Label text="°C Inicial" GridPane.halignment="RIGHT">
+					<GridPane.margin>
+						<Insets right="15.0" />
+					</GridPane.margin>
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label text="°C Final" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets right="15.0" />
+					</GridPane.margin>
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<TextField fx:id="txtInitialTemperature" GridPane.columnIndex="1" />
+				<TextField fx:id="txtFinalTemperature" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -81,24 +99,26 @@
 						<TextField fx:id="txtTotalTimeSeconds" GridPane.columnIndex="4" />
 					</children>
 				</GridPane>
-				<Label text="°C Inicial" GridPane.halignment="RIGHT">
-					<GridPane.margin>
-						<Insets right="15.0" />
-					</GridPane.margin>
-					<font>
-						<Font name="System Bold" size="16.0" />
-					</font>
-				</Label>
-				<Label text="°C Final" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-					<GridPane.margin>
-						<Insets right="15.0" />
-					</GridPane.margin>
-					<font>
-						<Font name="System Bold" size="16.0" />
-					</font>
-				</Label>
-				<TextField fx:id="txtInitialTemperature" GridPane.columnIndex="1" />
-				<TextField fx:id="txtFinalTemperature" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="txtRate" />
+                  <Label text="ºC/h" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -149,26 +169,6 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <TextField fx:id="txtRate" />
-                  <Label text="ºC/h" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="8.0" />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
             <RadioButton fx:id="radioBtTotalTime" mnemonicParsing="false" selected="true" text="Tempo de Gradiente" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
